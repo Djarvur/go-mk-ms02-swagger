@@ -1,0 +1,49 @@
+swagger: '2.0'
+info:
+  description: >-
+    This is a simple auth service
+  version: 0.0.1
+  title: testauth
+  contact:
+    email: onokonem@gmail.com
+  license:
+    name: MIT
+host: localhost:8080
+basePath: /testauth
+tags:
+  - name: ping
+    description: OMG NOT AGAIN!
+schemes:
+  - http
+paths:
+  /auth:
+    get:
+      tags:
+        - auth
+      summary: Yes we can!
+      description: YAML-based definitions suck again
+      operationId: auth
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: login
+          description: Login
+          required: true
+          type: string
+        - in: query
+          name: password
+          description: Password
+          required: true
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: string
+        '403':
+          description: Access denied
+        '400':
+          description: Invalid status value
+        '500':
+          description: Operation error
